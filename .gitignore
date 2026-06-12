@@ -1,0 +1,22 @@
+# Secrets & local state — never commit
+.env
+*.enc
+fkey
+session.txt
+*.session
+*.session-journal
+
+# Personal machine glue (Cowork drop job, hardcoded local paths) — never ship
+scripts/daily-drop.sh
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# OS
+.DS_Store
