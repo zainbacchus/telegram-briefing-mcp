@@ -29,9 +29,9 @@ dependencies = [
 dev = ["pytest>=8"]
 
 [project.urls]
-Homepage = "https://github.com/zain-cronos/telegram-briefing-mcp"
-Repository = "https://github.com/zain-cronos/telegram-briefing-mcp"
-Issues = "https://github.com/zain-cronos/telegram-briefing-mcp/issues"
+Homepage = "https://github.com/zainbacchus/telegram-briefing-mcp"
+Repository = "https://github.com/zainbacchus/telegram-briefing-mcp"
+Issues = "https://github.com/zainbacchus/telegram-briefing-mcp/issues"
 
 [project.scripts]
 telegram-briefing-mcp = "telegram_briefing_mcp.server:main"
