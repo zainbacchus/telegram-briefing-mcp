@@ -134,7 +134,7 @@ Once registered, just ask Claude in natural language:
 > *"Summarize the last week of my work groups on Telegram, then add it to my morning brief."*
 > *"Search my Telegram for anything about the Q3 launch this week."*
 
-Claude calls `get_briefing` (or `search_messages`), gets the structured messages, and writes the summary. Pair it with a scheduled task to get the brief refreshed every morning.
+Claude calls `get_briefing` (or `search_messages`), gets the structured messages, and writes the summary. Pair it with a scheduled task to get the brief refreshed every morning — but if that task writes into a protected folder on macOS, read the scheduling note under [Limitations](#limitations) first.
 
 ---
 
@@ -153,6 +153,7 @@ Claude calls `get_briefing` (or `search_messages`), gets the structured messages
 - Very large/active chats are bounded by `max_messages_per_chat` and a per-call `limit` so a single call can't pull unbounded history.
 - Media is summarized as a tag (`[photo]`, `[file: report.pdf]`, `[voice message]`, …); the connector does not download media.
 - A briefing scans up to `max_dialogs_scanned` (200) of your most recent conversations.
+- **Scheduling on macOS:** if you automate a refresh with `launchd` or `cron` and it reads or writes a TCC-protected folder (`~/Documents`, `~/Desktop`, `~/Downloads`), the scheduled process needs **Full Disk Access** — otherwise it fails with `Operation not permitted` (or `exit 127` when even the script lives under a protected folder), *even though the exact same command works from your terminal*. Grant it under System Settings → Privacy & Security → Full Disk Access to the interpreter the job runs (e.g. `/bin/zsh`) or the app that launches it. Note that this grant requires admin rights and can be reset by a macOS update; if you can't grant it, run the pull on demand instead.
 
 ---
 
